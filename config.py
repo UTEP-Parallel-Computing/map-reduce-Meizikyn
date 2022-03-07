@@ -1,0 +1,18 @@
+words = [
+    "hate",
+    "love",
+    "death",
+    "night",
+    "sleep",
+    "time",
+    "henry",
+    "hamlet",
+    "you",
+    "my",
+    "blood",
+    "poison",
+    "macbeth",
+    "king",
+    "heart",
+    "honest",
+]

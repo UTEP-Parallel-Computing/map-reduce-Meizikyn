@@ -1,36 +1,36 @@
 # Parallel-Computing-MapReduce
-For this assignment you will write a parallel map reduce program. The program will search for a set 
-of words among a set of documents that constitute the works of Shakespeare. The set of words is listed 
-below. The assignment should use the map-reduce design pattern to split up the work. You should have
-functions that count the number of a specific word within a specific document and combine the individual
-word counts.
 
-The program should output the total instances of all words and the counts for each individual word
+### Usage
 
-Word list:
-hate, love, death, night, sleep, time, henry, hamlet, you, my, blood, poison, macbeth, king, heart, honest
+```sh
+./run
+```
 
-Once completed the repository should contain your code, a short report, and any instructions needed to run your code.
+### Report
 
-Important note:
-You should initialize the shared global dictionary inside your parallel section, there's a bug in the
-OpenMP system that sometimes causes a program to freeze when initializing outside the parallel section.
+- What problems you encountered completing the assignment and how you overcame them:
+  No problems related to the assignment itself. It was fun.
 
-Hints: 
-* Its easier to load all the files containing text serial before entering the parallel processing region
-* Some of the variables will need to be locked before updating, otherwise a difficult to debug race condition may occure
-* This will take multiple loops (functions would be better though), you can iterate over the list of words
+- Any problems you weren't able to overcome or any bugs still left in the program:
+  Nope.
 
-## Requirements 
+- About how long it took you to complete the assignment:
+  About 6 hours over 2 days.
 
-Write a serial matrix multiply program in Python. The could should use reasonable decomposition, use reasonable variable names, and should generally follow good coding standards. Important, your assignment should include your name. 
+- Performance measurements (given in seconds) for 1, 2, 4, and 8 threads:
+  Can't get a read on this one. Different executions prompt different usage of threads,
+  mostly that one thread has finished before another can even start causing it to be
+  reused. 4 thread counts results (usually) in only 3 threads doing work, the first one
+  doing the work of the fourth (probably disk-read overhead slowing down consecutive
+  threads).
 
-The program shall count the number of each instances of each word for the set of documents, and the total of count of all words in the list
+- A short analysis of why the program behaves as it does with an increasing number of threads:
+  No speed up, for reason described above.
+- Any observations or comments you had while doing the assignment:
+  This :banana: is a banana.
 
-The program shall use PyMP to compute the number of words in parallel
-
-The program shall time how long overall operation takes and how long the word count and file reading operations take individually
-
-The program shall include any necessary instructions to properly run the program 
-
-The assignment shall be submitted through github 
+- Output from the cpuInfoDump.sh program:
+  ```
+  model name: Intel(R) Core(TM) i5-2520M CPU @ 2.50GHz
+  4 36 216
+  ```

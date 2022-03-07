@@ -18,14 +18,13 @@
   About 6 hours over 2 days.
 
 - Performance measurements (given in seconds) for 1, 2, 4, and 8 threads:
-  Can't get a read on this one. Different executions prompt different usage of threads,
-  mostly that one thread has finished before another can even start causing it to be
-  reused. 4 thread counts results (usually) in only 3 threads doing work, the first one
-  doing the work of the fourth (probably disk-read overhead slowing down consecutive
-  threads).
-
+  1. 1.479s
+  2. 1.454s
+  3. 0.845s
+  4. 0.817s
 - A short analysis of why the program behaves as it does with an increasing number of threads:
-  No speed up, for reason described above.
+  Probably some overhead related to storage disk read speed causing threads to finish actual
+  processing before the next thread can finish the read.
 - Any observations or comments you had while doing the assignment:
   This :banana: is a banana.
 

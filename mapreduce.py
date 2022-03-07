@@ -75,7 +75,7 @@ def count_word_occurances(word: str, string: str) -> int:
     :return: number of times `word` occurs in `string`
     """
     pattern = word
-    matches = re.findall(pattern, string)
+    matches = re.findall(pattern, string, re.IGNORECASE)
     return len(matches)
 
 

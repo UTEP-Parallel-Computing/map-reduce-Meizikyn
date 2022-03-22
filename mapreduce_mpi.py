@@ -84,15 +84,15 @@ def main() -> None:
     num_documents = len(document_paths)
     shared_word_map = {word: 0 for word in config.words}
 
-    print("Key Ordering:", config.words)
-
     total_start_time = time.clock_gettime(time.CLOCK_MONOTONIC_RAW)
 
     if thread_num == 0:
 
+        print("Key Ordering:", config.words)
         print(f"Thread Count: {num_threads}")
 
         for document_num in range(num_documents):
+            print(document_num)
             word_map = comm.recv(tag=document_num)
             for word in config.words:
                 shared_word_map[word] += word_map[word]
@@ -108,7 +108,8 @@ def main() -> None:
                 word_map[word] = count_word_occurances(word, string)
             return word_map
 
-        for index in range(start_index, end_index):
+        for index in range(start_index, end_index - 1):
+            print(f"index: {index} / {num_documents}")
             path = document_paths[index]
             content: str = read_file_data(path)
             word_map: Dict[str, int] = map_words_to_occurances(config.words, content)
